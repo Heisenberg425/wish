@@ -136,6 +136,7 @@ function info (req, res) {
 
 }
 
+//POST请求，http://localhost:3002/wish, 提交name&&content内容
 // 添加许愿方法
 function add (req, res) {
   // 定义一个返回对象
@@ -173,7 +174,7 @@ function add (req, res) {
   Common.autoFn (tasks, res, resObj)
 }
 
-// 修改许愿方法
+// 修改许愿方法   发送PUT请求http://localhost:3002/wish，发送报文的body里有id,name,content
 function update (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
@@ -220,7 +221,7 @@ function update (req, res) {
   Common.autoFn (tasks, res, resObj)
 }
 
-// 删除许愿方法
+// 删除许愿方法  DELETE请求http://localhost:3002/wish    body里有id
 function remove (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
