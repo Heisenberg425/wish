@@ -17,7 +17,7 @@ let exportObj = {
 // 导出对象，供其它模块调用
 module.exports = exportObj;
 
-// 获取管理员列表方法
+// 获取管理员列表方法   GET请求http://localhost:3002/admin?page=1&rows=5
 function list (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
@@ -87,7 +87,7 @@ function list (req, res) {
 
 }
 
-// 获取单条管理员方法
+// 获取单条管理员方法  GET请求http://localhost:3002/admin/1
 function info (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
@@ -138,7 +138,7 @@ function info (req, res) {
 
 }
 
-// 添加管理员方法
+// 添加管理员方法 POST请求http://localhost:3002/admin  body里要有这些信息
 function add (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
@@ -177,7 +177,7 @@ function add (req, res) {
   Common.autoFn (tasks, res, resObj)
 }
 
-// 修改管理员方法
+// 修改管理员方法   PUT请求http://localhost:3002/admin  id要有，其他修改的信息要有
 function update (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
@@ -199,7 +199,7 @@ function update (req, res) {
           role: req.body.role
         }, {
           where: {
-            id: req.body.id
+            id: req.body.id  //主键id，更新的查找条件
           }
         })
         .then (function (result) {
@@ -226,7 +226,7 @@ function update (req, res) {
   Common.autoFn (tasks, res, resObj)
 }
 
-// 删除管理员方法
+// 删除管理员方法    DELETE请求http://localhost:3002/admin  发送报文body里要有id信息
 function remove (req, res) {
   // 定义一个返回对象
   const resObj = Common.clone (Constant.DEFAULT_SUCCESS);
